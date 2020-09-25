@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+	<br/>
+		<h:commandButton value="Novo Equipamento" action="#{equipamentoBean.novo}" onclick="btnNovoEquipamento();" /> 
+		   <h4>Listagem de equipamentos</h4>
+		<br/>
+     	
+	<h:form id="listagem">
+	<h:dataTable  value="#{equipamentoBean.listaEquipamentos}" var="equipamento" style="font-size:14px;"
+		emptyMessage="Nenhum registro incluído." paginator="true" rows="9">
+		
+		  <h:column style="font-size:14px;" headerText="Código">  
+	  		<h:outputText value="#{equipamento.codigo}"/>  		
+		  </h:column>	
+		  
+		  <h:column style="font-size:14px;" headerText="Descrição">
+	  		<h:outputText value="#{equipamento.descricao}"/> 	  
+		  </h:column>
+		  
+		  <h:column style="font-size:14px;" headerText="Quantidade">
+	  		<h:outputText value="#{equipamento.quantidade}"/> 	  
+		  </h:column>
+		  
+		  <h:column style="font-size:14px; text-align:center;" headerText="Valor">
+	  		<h:outputText value="#{equipamento.valor}"/> 	  
+		  </h:column>
+		  <h:column style="font-size:14px;" headerText="Ações">
+	  		 <h:commandButton action="#{equipamentoBean.excluir}" 
+	  		 		onclick="if(!confirm('Confirma a exclusão do equipamento ${equipamento.codigo}?')){ return false;}" 
+	  		 		value="Excluir"  update="@all">
+	  		 	<f:setPropertyActionListener value="#{equipamento}" target="#{equipamentoBean.equipamento}"></f:setPropertyActionListener>
+	  		 	
+	  		 </h:commandButton>	
+	  		 
+	  		 <h:commandButton action="#{equipamentoBean.editar}" 
+	  		 		onclick="if(!confirm('Confirmar a edição do equipamento ${equipamento.codigo}?')){ return false; }"
+	  		 		value="Editar" update="display" icon="pi pi-check" >
+	  		 	<f:setPropertyActionListener value="#{equipamento}" target="#{equipamentoBean.equipamento}"></f:setPropertyActionListener>
+	  		   <f:ajax execute="@this" render=":listagem" />	
+	  		 </h:commandButton>		  		   		 	  		  
+		  </h:column>	  	  	  	  
+	</h:dataTable>
+
+	</h:form>
+</html>
+
+
