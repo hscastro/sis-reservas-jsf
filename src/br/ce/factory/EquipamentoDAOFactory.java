@@ -20,5 +20,9 @@ public class EquipamentoDAOFactory {
 	public static List<Equipamento> listarEquipamentos() {
 		return equipamentoDAO.listar();
 	}
+	
+	public static boolean excluirEquipamento(Equipamento equipamento) {
+		return equipamentoDAO.excluir(equipamento);
+	}	
 
 }

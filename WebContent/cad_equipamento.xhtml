@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions">
 
  <head>
   <title>Equipamentos</title>
@@ -13,31 +15,34 @@
 		<h3>Cadastro de Equipamentos</h3>
 	
 		<h:form id="cadastro" style="font-size:14px;">
-			<h:messages />
+		<h:messages  />
 			
 			<h:panelGrid columns="2">
 
 				<h:outputLabel value="Equipamento" for="equipamento" style="font-size: 15px; "/>
 				<h:inputText id="equipamento" label="equipamento" style="height: 25px;"
-					value="#{equipamentoBean.equipamento.descricao}" size="42" maxlength="30" required="true">
+					value="#{equipamentoBean.equipamento.descricao}" size="72" maxlength="80" required="true">
 					<f:validateLength minimum="3" maximum="30" />
 				</h:inputText>
 			            		    	 
 				<h:outputLabel value="quantidade" for="quantidade" style="font-size: 15px; "/>
 				<h:inputText id="quantidade" label="quantidade" style="height: 25px;"
-					value="#{equipamentoBean.equipamento.quantidade}" size="20" maxlength="30"  >					
+					value="#{equipamentoBean.equipamento.quantidade}" size="25" maxlength="30"  >					
 				</h:inputText>
 				
 				<h:outputLabel value="valor" for="valor" style="font-size: 15px; "/>
 				<h:inputText id="valor" label="valor" style="height: 25px;"
-					value="#{equipamentoBean.equipamento.valor}" size="20" maxlength="30" >					
+					value="#{equipamentoBean.equipamento.valor}" size="25" maxlength="30" >					
 				</h:inputText>				
 
 			</h:panelGrid>
 			<br/>		   
 			<h:commandButton action="#{equipamentoBean.adicionar}" value="Salvar" />	
 			<button id="_btbVoltar" onclick="redicionaBtnVoltar();">Voltar</button>	
+						
 		</h:form>
+		
+	
  </body>
 
 
