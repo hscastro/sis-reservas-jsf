@@ -59,9 +59,11 @@ public class EquipamentoDAOImpl implements EquipamentoDAO<Equipamento> {
 
 	@Override
 	public List<Equipamento> listar() {
+		@SuppressWarnings("deprecation")
 		Criteria criteria = session.createCriteria(Equipamento.class);
 		criteria.setMaxResults(50);
-		List lista = criteria.list();
+		@SuppressWarnings("unchecked")
+		List<Equipamento> lista = criteria.list();
 		return lista;
 	}
 
