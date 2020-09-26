@@ -5,10 +5,37 @@
 		xmlns:f="http://xmlns.jcp.org/jsf/core"
 		xmlns:p="http://primefaces.org/ui">
 
-	<br/>
+	<h:head>
+		<title>Listagem de Equipamentos</title>
+
+		<link rel="StyleSheet" type="text/css" href="css/style.css" />
+		<h:outputScript library="js" name="script.js" />	 
+
+		<script type="text/javascript">
+			function redicionaBtnNovo(){	
+				document.location.href = "cad_equipamento.xhtml";				
+			}
+			
+			function redicionaBtnVoltar(){
+				document.location.href = "listar_equipamentos.xhtml";
+			}
+			
+			function btnNovoEquipamento(){
+				document.location.href = "add_equipamento.xhtml";
+			}
+	            
+	    </script>		   
+	</h:head>
+	
+	<header>
+		<h:graphicImage library="algaworks" name="logo.png" />
+	</header>
+	<h:messages showDetail="true" 
+				errorStyle="color: red" infoStyle="color: green"
+				warnStyle="color: orange" fatalStyle="color: gray" />
+
 		<h:commandButton value="Novo Equipamento" action="#{equipamentoBean.novo}" onclick="btnNovoEquipamento();" /> 
-		   <h4>Listagem de equipamentos</h4>
-		<br/>
+		   <h2>Listagem de equipamentos</h2>
      	
 	<h:form id="listagem">
 	
@@ -40,6 +67,14 @@
 	  		 	<f:setPropertyActionListener value="#{equipamento}" target="#{equipamentoBean.equipamento}"></f:setPropertyActionListener>
 	  		   <f:ajax execute="@this" render=":listagem" />	
 	  		 </h:commandButton>		  		   		 	  		  
+
+	  		 <h:commandButton action="#{equipamentoBean.editar}" 
+	  		 		onclick="if(!confirm('Confirmar a emissão do relatório? ${equipamento.codigo}?')){ return false; }"
+	  		 		value="Relatório" update="display" icon="pi pi-check" >
+	  		 	<f:setPropertyActionListener value="#{equipamento}" target="#{equipamentoBean.equipamento}"></f:setPropertyActionListener>
+	  		   <f:ajax execute="@this" render=":listagem" />	
+	  		 </h:commandButton>	
+	  		 
 		  </p:column>	  	  	  	  
 	</p:dataTable>
 

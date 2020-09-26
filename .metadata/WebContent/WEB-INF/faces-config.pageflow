@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16009946853280" configfile="/sis-reservas-jsf/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16009946853280" configfile="/sis-reservas-jsf/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="cad_equipamento.xhtml" x="122" y="178" id="pf16011440194380" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" outlinks="pf16011457130514 pf16011462366315 pf16011462366316" inlinks="pf16011457130514 pf16011462366316" path="/listar_equipamentos.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listar_equipamentos.xhtml" x="122" y="562" id="pf16011440194383" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" path="/listar_equipamentos.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="cad_equipamento.xhtml" x="338" y="178" id="pf16011462366317" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16011462366315" path="/add_equipamento.xhtml"/>
+  <links id="pf16011462366315" target="pf16011462366317" source="pf16011440194380" outcome="add_new_equipamento" fromaction="#{equipamentoBean.novo}"/>
+  <links id="pf16011457130514" target="pf16011440194380" source="pf16011440194380" outcome="add_sucesso" fromaction="#{equipamentoBean.adicionar}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf16011462366316" target="pf16011440194380" source="pf16011440194380" outcome="add_delete" fromaction="#{equipamentoBean.excluir}">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+</pageflow:Pageflow>

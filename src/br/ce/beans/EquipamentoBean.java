@@ -1,6 +1,6 @@
 package br.ce.beans;
 
-import java.io.IOException;
+//import java.io.IOException;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -71,13 +71,14 @@ public class EquipamentoBean {
 	}	
 
     public String novo(){
-        try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("cad_equipamento.xhtml");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        return "add_new_equipamento"; 
+
+//        try {
+//            FacesContext.getCurrentInstance().getExternalContext().redirect("cad_equipamento.xhtml");
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
         
-        return "cad_equipamento.xhtml"; 
     }	
 
     public String editar() {
