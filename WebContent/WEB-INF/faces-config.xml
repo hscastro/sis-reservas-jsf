@@ -4,12 +4,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
     version="2.3">
+
 	<managed-bean>
 		<managed-bean-name>equipamentoBean</managed-bean-name>
 		<managed-bean-class>br.ce.beans.EquipamentoBean</managed-bean-class>
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
-	
+
+	<managed-bean>
+		<managed-bean-name>clienteBean</managed-bean-name>
+		<managed-bean-class>br.ce.beans.ClienteBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
+		
 	<!-- Navegação entre as paginas web -->
 	<navigation-rule>
 		<from-view-id>/listar_equipamentos.xhtml</from-view-id>

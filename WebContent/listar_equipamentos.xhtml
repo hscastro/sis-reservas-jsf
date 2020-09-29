@@ -68,12 +68,12 @@
 	  		   <f:ajax execute="@this" render=":listagem" />	
 	  		 </h:commandButton>		  		   		 	  		  
 
-	  		 <h:commandButton action="#{equipamentoBean.editar}" 
-	  		 		onclick="if(!confirm('Confirmar a emissão do relatório? ${equipamento.codigo}?')){ return false; }"
-	  		 		value="Relatório" update="display" icon="pi pi-check" >
-	  		 	<f:setPropertyActionListener value="#{equipamento}" target="#{equipamentoBean.equipamento}"></f:setPropertyActionListener>
+	  		 <p:commandButton  action="#{equipamentoBean.imprimirRelatorio}" 
+	  		 		onclick="if(!confirm('Confirmar a emissão do relatório? ')){ return false; }"
+	  		 		value="Relatório" icon="ui-icon-print" >
+	  		 	
 	  		   <f:ajax execute="@this" render=":listagem" />	
-	  		 </h:commandButton>	
+	  		 </p:commandButton>	
 	  		 
 		  </p:column>	  	  	  	  
 	</p:dataTable>

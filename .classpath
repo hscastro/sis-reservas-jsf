@@ -36,5 +36,26 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsf-api-2.2.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsf-impl-2.2.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-6.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-beanutils-1.8.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-dbcp-1.2.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-digester3-3.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-digester3-3.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-digester3-3.2-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-digester3-3.2-with-deps.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-javaflow-20060411.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jasperreports-6.2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jasperreports-fonts-6.2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jasperreports-functions-6.2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jasperreports-javaflow-6.2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml-apis.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/serializer.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xercesSamples.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/pdfa-7.1.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/omnifaces-3.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

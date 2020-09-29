@@ -11,7 +11,7 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		<!-- Pool de Conexões -->
-	    <property name="connection.pool_size">1</property>
+	    <property name="connection.pool_size">5</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		
@@ -19,6 +19,7 @@
 	    <property name="hbm2ddl.auto">update</property>
 
 		<mapping class="br.ce.models.Equipamento" />
+		<mapping class="br.ce.models.Cliente" />
 
 	</session-factory>
 </hibernate-configuration>

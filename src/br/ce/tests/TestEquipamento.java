@@ -1,9 +1,6 @@
 package br.ce.tests;
 
-import java.math.BigDecimal;
 import java.util.List;
-
-import br.ce.factory.EquipamentoDAOFactory;
 import br.ce.impls.EquipamentoDAOImpl;
 import br.ce.models.Equipamento;
 
@@ -21,8 +18,7 @@ public class TestEquipamento {
 		List<Equipamento> lista = imp.listar();
 		for (Equipamento equipamento : lista) {
 			System.out.println(equipamento.getDescricao());
-		}
-		
+		}	
 
 	}
 

@@ -6,7 +6,7 @@ public class TestConnectonHibernate {
 	public static void main(String []args) {
 		
 		try{
-			HibernateUtil.getSessionFactory();
+			HibernateUtil.getFabricaSessoes();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

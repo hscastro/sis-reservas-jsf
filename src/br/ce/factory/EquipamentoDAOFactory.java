@@ -16,7 +16,10 @@ public class EquipamentoDAOFactory {
 		return equipamentoDAO.salvar(equipamento);
 	}
 
-
+	public static boolean editarEquipamento(Equipamento equipamento) {
+		return equipamentoDAO.editar(equipamento);
+	}
+	
 	public static List<Equipamento> listarEquipamentos() {
 		return equipamentoDAO.listar();
 	}

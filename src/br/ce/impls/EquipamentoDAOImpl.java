@@ -16,7 +16,7 @@ public class EquipamentoDAOImpl implements EquipamentoDAO<Equipamento> {
 
 	
 	public EquipamentoDAOImpl() {
-		this.session = HibernateUtil.getSessionFactory().openSession();	
+		this.session = HibernateUtil.getFabricaSessoes().openSession();	
 	}
 
 	@Override
@@ -36,9 +36,19 @@ public class EquipamentoDAOImpl implements EquipamentoDAO<Equipamento> {
 	}
 
 	@Override
-	public boolean editar(Equipamento e) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean editar(Equipamento e) {		
+		try {
+			this.session.beginTransaction();
+			this.session.saveOrUpdate(e);
+			this.session.getTransaction().commit();
+			
+			return true;
+			
+		} catch (Exception e1) {
+				e1.printStackTrace();
+		}
+		
+		return false;		
 	}
 
 	@Override
