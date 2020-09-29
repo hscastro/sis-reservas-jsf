@@ -11,7 +11,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 
-import org.omnifaces.util.Faces;
 
 import br.ce.dao.EquipamentoDAO;
 import br.ce.factory.EquipamentoDAOFactory;
@@ -19,9 +18,10 @@ import br.ce.impls.EquipamentoDAOImpl;
 import br.ce.models.Equipamento;
 import br.ce.util.HibernateUtil;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * sistema de reservas com jsf, maven, jpa e hibernate
@@ -128,26 +128,30 @@ public class EquipamentoBean {
     
     public String imprimirRelatorio() {
     	try { 
-    		String caminhoRelatorio = Faces.getRealPath("/reports/rel_equipamentos.jasper");
-    		//FacesContext context = FacesContext.getCurrentInstance();
-    		//String caminhoRelatorio = context.getExternalContext().getRealPath("/reports/rel_equipamentos.jasper");
-    		System.out.println("test 1 ");
+    		//String caminhoRelatorio = Faces.getRealPath("/reports/rel_equipamentos.jasper");
+    		FacesContext context = FacesContext.getCurrentInstance();
+    		String caminhoRelatorio = context.getExternalContext().getRealPath("/reports/rel_equipamentos.jrxml");
+    		//String destinoRelatorio = context.getExternalContext().getRealPath("/reports/rel_equipamentos.pdf");
     		Map<String, Object> parametros = new HashMap<>();
-    		System.out.println("test 2");
+    		
     		//recebe uma conexão do hibernate e converter para uma conexão JDBC
     		Connection conn = HibernateUtil.getConexao();
-    		System.out.println("test 3 "+caminhoRelatorio);
+    		
+    		// compila jrxml em um arquivo .jasper
+    		String jasper = JasperCompileManager.compileReportToFile(caminhoRelatorio);    		
+    		
     		//prepara o relatório
-     	    JasperPrint relatorio = JasperFillManager.fillReport(caminhoRelatorio, parametros, conn);
-     	    System.out.println("test 4");
-     	    //abbre o relatório para impressão
-     	    JasperPrintManager.printReport(relatorio, true);
-     	    System.out.println("test 5");
+     	    JasperPrint print = JasperFillManager.fillReport(jasper, parametros, conn);
+     	    
+            // exporta para pdf
+     	    JasperViewer viewer = new JasperViewer(print, true);
+     	    viewer.setVisible(true);
+     	    
     	} catch (JRException e) {
     		FacesContext.getCurrentInstance().addMessage(
                     null, new FacesMessage("Ocorreu um erro ao tentar gerar o relatório"));
-    		//e.printStackTrace();
-    	}
+    		        e.printStackTrace();
+    	} 
     	
     	return "test";
     }
